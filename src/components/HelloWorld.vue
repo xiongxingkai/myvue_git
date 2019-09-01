@@ -9,6 +9,7 @@
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li>ggg测试dev分支协同开发</li>
+      <li>ggg测试dev分支协同开发89888</li>
       <li><a href="http://www.baidu.com" target="_blank">百度</a></li>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
