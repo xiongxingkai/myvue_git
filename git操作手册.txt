@@ -60,6 +60,7 @@
       或 git checkout -b feature/plan_one
          git branch --set-upstream-to=origin/feature/plan_one feature/plan_one
 
+git status 查看命令窗口的提示，提示指明了当前分支的提交状态
 
 
 
