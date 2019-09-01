@@ -1,0 +1,63 @@
+1. 创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，
+   如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
+   先通过 ssh-keygen -t rsa -C "865828782@qq.com" 指令在当前用户的目录下创建并得到.ssh目录，
+   再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件
+
+2. 第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：然后，点“Add SSH Key”，
+   填上任意Title，在Key文本框里粘贴id_rsa.pub(ctrl+A直接复制全部)文件的内容：
+    点“Add Key”，你就应该看到已经添加的Key：
+
+3. 创建git 仓库（有两种方法）
+
+3.1.1 在本地新建一个空文件夹（例如叫myvue_git），然后在当前文件下打开命名窗口，
+       执行命令 git init 就创建了一个git仓库
+
+3.1.2 然后在当前文件夹下就可以写代码了，写完保存文件
+
+3.1.3 登陆GitHub，然后，在右上角找到“Create a new repo”按钮，创建一个新的仓库，
+      在Repository name填入与本地仓库目录名相同的名字(myvue_git)，其他保持默认设置，
+      点击“Create repository”按钮，就成功地创建了一个新的Git仓库：
+
+3.1.4 目前，在GitHub上的这个myvue_git仓库还是空的，GitHub告诉我们，
+      可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，
+      然后，把本地仓库的内容推送到GitHub仓库。
+
+3.1.5 现在，我们根据GitHub的提示，在本地的myvue_git仓库下运行命令：
+       git remote add origin git@github.com:xiongxingkai/myvue_git.git   // 这是ssh协议
+    或 git remote add origin https://github.com/xiongxingkai/myvue_git.git   // 也可以是https协议
+
+    添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，
+    但是origin这个名字一看就知道是远程库。
+
+3.1.6 下一步，就可以把本地库的所有内容推送到远程库上：
+       git push -u origin master （这里推送其他远程没有的分支也是一样，只需把master换成其它分支名即可）
+       把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。
+       由于远程库是空的，我们第一次推送master分支时，加上了-u参数，
+       Git不但会把本地的master分支内容推送的远程新的master分支，
+       还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+        推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样：
+        从现在起，只要本地作了提交，就可以通过命令：git push origin master 或 git push
+
+
+
+
+3.2.1 现在，假设我们从零开发，那么最好的方式是先创建远程库，然后，从远程库克隆。
+      首先，登陆GitHub，创建一个新的仓库，名字叫myvue_git：
+      我们勾选Initialize this repository with a README，
+      这样GitHub会自动为我们创建一个README.md文件。创建完毕后，可以看到README.md文件：
+
+3.2.2 现在，远程库已经准备好了，下一步是用命令git clone克隆一个本地库：
+      在本地电脑找个文件夹打开命令窗口，执行下面命令，就可以克隆出git上的项目到本地
+      git clone git@github.com:xiongxingkai/myvue_git.git  // 这是ssh协议
+      或 git clone https://github.com/xiongxingkai/myvue_git.git // 也可以是https协议
+
+3.2.3 在本地创建一个（原地址没有的）新的分支，并切换到该分支
+       git checkout -b feture/plan_one
+       然后修改代码保存，然后输入 git push -u origin feture/plan_one  推送到远程创建并关联远程的该分支
+
+3.2.4 在本地创建一个（原地址没有的）新的分支，并切换到该分支
+      git checkout -b feature/plan_one origin/feature/plan_one
+      或 git checkout -b feature/plan_one
+         git branch --set-upstream-to=feature/plan_one origin/feature/plan_one
+
+      
